@@ -9,7 +9,7 @@
 
 ### Пример кода
 ```kotlin
-package com.example.ekzamen// Убедись, что пакет совпадает с твоим
+package com.example.ekzamen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -40,30 +40,30 @@ class MainActivity : ComponentActivity() {
 }
 
 // Определяем наши кастомные цвета для светлой и темной тем
-private val LightBackground = Color(0xFFF5F5F5) // Светло-серый фон
-private val LightText = Color(0xFF212121)       // Почти черный текст
+private val LightBackground = Color(0xFFF5F5F5) 
+private val LightText = Color(0xFF212121)       
 
-private val DarkBackground = Color(0xFF212121)  // Темно-серый фон
-private val DarkText = Color(0xFFF5F5F5)        // Светлый текст
+private val DarkBackground = Color(0xFF212121)  
+private val DarkText = Color(0xFFF5F5F5)        
 
 @Composable
 fun ThemeSwitcherScreen() {
-    // Состояние переключателя. false = светлая тема, true = темная.
+    
     var isDarkTheme by remember { mutableStateOf(false) }
 
-    // Выбираем текущие цвета в зависимости от состояния переключателя
+    
     val backgroundColor = if (isDarkTheme) DarkBackground else LightBackground
     val textColor = if (isDarkTheme) DarkText else LightText
     val switchLabelColor = if (isDarkTheme) Color.White else Color.Black
 
-    // Контейнер экрана с динамическим фоном
+   
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(backgroundColor), // <-- Вот где меняется фон!
         contentAlignment = Alignment.Center
     ) {
-        // Карточка в центре, чтобы контент выглядел аккуратно
+     
         Card(
             modifier = Modifier
                 .padding(16.dp)
@@ -80,7 +80,7 @@ fun ThemeSwitcherScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                // Заголовок, цвет которого меняется
+              
                 Text(
                     text = "Настройки темы",
                     fontSize = 24.sp,
@@ -90,7 +90,7 @@ fun ThemeSwitcherScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Демонстрационный текст, чтобы увидеть эффект смены цвета
+              
                 Text(
                     text = "Этот текст иллюстрирует текущую цветовую схему.",
                     fontSize = 16.sp,
@@ -99,7 +99,7 @@ fun ThemeSwitcherScreen() {
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // Сам переключатель и его подпись
+           
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth(),
