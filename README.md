@@ -30,16 +30,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // Устанавливаем тему Material 3 (она будет базовой оболочкой)
+            
             MaterialTheme {
-                // Вызываем наш основной composable-экран
+            
                 ThemeSwitcherScreen()
             }
         }
     }
 }
 
-// Определяем наши кастомные цвета для светлой и темной тем
+
 private val LightBackground = Color(0xFFF5F5F5) 
 private val LightText = Color(0xFF212121)       
 
@@ -60,7 +60,7 @@ fun ThemeSwitcherScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(backgroundColor), // <-- Вот где меняется фон!
+            .background(backgroundColor), 
         contentAlignment = Alignment.Center
     ) {
      
@@ -85,7 +85,7 @@ fun ThemeSwitcherScreen() {
                     text = "Настройки темы",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
-                    color = textColor // <-- Меняем цвет текста
+                    color = textColor 
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -94,7 +94,7 @@ fun ThemeSwitcherScreen() {
                 Text(
                     text = "Этот текст иллюстрирует текущую цветовую схему.",
                     fontSize = 16.sp,
-                    color = textColor.copy(alpha = 0.7f) // <-- Меняем цвет и делаем полупрозрачным
+                    color = textColor.copy(alpha = 0.7f) 
                 )
 
                 Spacer(modifier = Modifier.height(24.dp))
@@ -108,14 +108,14 @@ fun ThemeSwitcherScreen() {
                     Text(
                         text = "Тёмная тема",
                         fontSize = 18.sp,
-                        color = switchLabelColor // Цвет подписи тоже зависит от темы
+                        color = switchLabelColor 
                     )
                     Switch(
                         checked = isDarkTheme,
-                        onCheckedChange = { isDarkTheme = it }, // Переключаем состояние
+                        onCheckedChange = { isDarkTheme = it }, 
                         colors = SwitchDefaults.colors(
                             checkedThumbColor = Color.White,
-                            checkedTrackColor = Color(0xFF6200EE), // Material Purple
+                            checkedTrackColor = Color(0xFF6200EE), 
                             uncheckedThumbColor = Color.Gray,
                             uncheckedTrackColor = Color.LightGray
                         )
